@@ -9,7 +9,7 @@ from selenium.webdriver.common.by import By
 import time
 
 chrome_options = Options()
-chrome_options.add_argument('--headless')
+# chrome_options.add_argument('--headless')
 chrome_options.add_argument('--no-sandbox')
 chrome_options.add_argument('--disable-dev-shm-usage')
 
@@ -22,24 +22,24 @@ print(driver.current_url)
 
 actions = ActionChains(driver)
 
-wait = WebDriverWait(driver, 20)  # Increased wait time to 20 seconds
+wait = WebDriverWait(driver, 100)  # Increased wait time to n seconds
 
-element = wait.until(EC.presence_of_element_located((By.ID, "{7328D0AF-DF5C-11EB-B011-0A2E49781BB2}_rich_text_widget")))
+# element = wait.until(EC.presence_of_element_located((By.ID, "{7328D0AF-DF5C-11EB-B011-0A2E49781BB2}_rich_text_widget")))
 
-# Find the specific paragraph within the div
-paragraph = element.find_element(By.XPATH, "./p[2]")
+# # Find the specific paragraph within the div
+# paragraph = element.find_element(By.XPATH, "./p[2]")
 
-# Scroll the element into view
-driver.execute_script("arguments[0].scrollIntoView(true);", paragraph)
+# # Scroll the element into view
+# driver.execute_script("arguments[0].scrollIntoView(true);", paragraph)
 
-time.sleep(1)
+# time.sleep(1)
 
-actions.move_to_element(paragraph).perform()
+# actions.move_to_element(paragraph).perform()
 
-# Now you can interact with the paragraph
-text = paragraph.text
-print(text)
+# # Now you can interact with the paragraph
+# text = paragraph.text
+# print(text)
 
-time.sleep(3)
+# time.sleep(3)
 
-driver.quit()
+# driver.quit()

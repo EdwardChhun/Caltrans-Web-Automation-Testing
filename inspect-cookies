@@ -1,0 +1,18 @@
+import pickle
+from urllib.parse import urlparse
+
+# Load cookies
+with open("cookies.pkl", "rb") as file:
+    cookies = pickle.load(file)
+
+# Get the domain from the URL
+url = "https://caltrans.brightidea.com/TransformationalOperationsPilots"
+domain = urlparse(url).netloc
+
+# Modify cookie domains
+for cookie in cookies:
+    cookie['domain'] = domain
+
+# Save modified cookies
+with open("cookies_modified.pkl", "wb") as file:
+    pickle.dump(cookies, file)
